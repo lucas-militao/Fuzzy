@@ -8,10 +8,16 @@ import matplotlib.pyplot as plt
 x_dan = np.arange(0, 11, 1)
 x_res = np.arange(0, 11, 1)
 x_con = np.arange(0, 11, 1)
-x_mob  = np.arange(0, 11, 1)
-x_uti  = np.arange(0, 11, 1)
-x_alc  = np.arange(0, 11, 1)
+x_mob = np.arange(0, 11, 1)
+x_uti = np.arange(0, 11, 1)
+x_alc = np.arange(0, 11, 1)
 
+x_mag = np.arange(0, 6, 1)
+x_tan = np.arange(0, 6, 1)
+x_ass = np.arange(0, 6, 1)
+x_lut = np.arange(0, 6, 1)
+x_ati = np.arange(0, 6, 1)
+x_sup = np.arange(0, 6, 1)
 
 dan_b = fuzz.trimf(x_dan, [0, 0, 5])
 dan_m = fuzz.trimf(x_dan, [0, 5, 10])
@@ -31,6 +37,14 @@ uti_a = fuzz.trimf(x_uti, [5, 10, 10])
 alc_b = fuzz.trimf(x_alc, [0, 0, 5])
 alc_m = fuzz.trimf(x_alc, [0, 5, 10])
 alc_a = fuzz.trimf(x_alc, [5, 10, 10])
+
+mag = fuzz.trimf(x_mag, [0, 0, 5])
+tan = fuzz.trimf(x_tan, [0, 5, 10])
+ass = fuzz.trimf(x_ass, [5, 10, 10])
+lut = fuzz.trimf(x_lut, [10, 15, 15])
+ati = fuzz.trimf(x_ati, [15, 20, 20])
+sup = fuzz.trimf(x_sup, [20, 25, 25])
+
 
 fig, ((ax0, ax1), (ax2, ax3), (ax4, ax5)) = plt.subplots(ncols=2, nrows=3, figsize=(15, 6))
 
@@ -76,17 +90,23 @@ for ax in (ax0, ax1, ax2, ax3, ax4, ax5):
     ax.get_xaxis().tick_bottom()
     ax.get_yaxis().tick_left()
 
-
-
-# plt.tight_layout(pad=0.4, w_pad=0.5, h_pad=1.0)
 plt.show()
 
-# fig2, (ax3, ax4, ax5) = plt.subplots(nrows=3, figsize=(8, 9))
-#
+fig, (ax6) = plt.subplots(nrows=1, figsize=(15, 6))
 
-# for ax in (ax3, ax4, ax5):
-#     ax.spines['top'].set_visible(False)
-#     ax.spines['right'].set_visible(False)
-#     ax.get_xaxis().tick_bottom()
-#     ax.get_yaxis().tick_left()
+ax6.plot(x_mag, mag, 'r', linewidth=1.5, label='Mago')
+ax6.plot(x_tan, tan, 'b', linewidth=1.5, label='Tanque')
+ax6.plot(x_ass, ass, 'g', linewidth=1.5, label='Assassino')
+ax6.plot(x_lut, lut, 'c', linewidth=1.5, label='Lutador')
+ax6.plot(x_sup, sup, 'm', linewidth=1.5, label='Suporte')
+
+ax6.spines['top'].set_visible(False)
+ax6.spines['right'].set_visible(False)
+ax6.get_xaxis().tick_bottom()
+ax6.get_yaxis().tick_left()
+
+plt.show()
+
+
+
 
